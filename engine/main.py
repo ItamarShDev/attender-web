@@ -24,7 +24,7 @@ import jinja2
 import urllib
 
 JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__).split('engine')[0]+"web\\"),
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__).split('engine')[0]+"web"),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 

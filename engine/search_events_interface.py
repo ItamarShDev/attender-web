@@ -26,8 +26,8 @@ class EventSearch():
             event = dict()
             event['id'] = res.key.id()
             event['name'] = res.name
-            date_time = int(mktime(res.date.utctimetuple()) * 1000)
-            event['date'] = date_time
+            #date_time = int(mktime(res.date.utctimetuple()) * 1000)
+            event['date'] = res.date
             event['city'] = res.city
             event['address'] = res.address
             event['description'] = res.description
@@ -37,7 +37,7 @@ class EventSearch():
             event['price'] = res.price
             events_list.append(event)
 
-        event_json = json.dumps(events_list)
+        #event_json = json.dumps(events_list)
         # return event_json
         return events_list
 

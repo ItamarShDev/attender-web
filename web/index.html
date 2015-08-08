@@ -11,24 +11,28 @@
             <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
             <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
           </head>
-          <body>
 
+          <body>
             <nav class="white" role="navigation">
               <div class="nav-wrapper container">
                 <a id="logo-container" href="#" class="brand-logo"><img src="images/logo1.png"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a><i href="#modal1" class="material-icons modal-trigger" >input</i></a></li>
+                    <li><a><i href="#modal1" class="material-icons modal-trigger">input</i></a></li>
+                    <li><a><i href="#modal2" class="material-icons modal-trigger">assignment</i></a></li>
+                    <li><a><i href="#modal3" class="material-icons modal-trigger">today</i></a></li>
                 </ul>
-                <!-- Modal Structure -->
+              </div>
+                    <!-- Modal1 Structure -->
                 <div id="modal1" class="modal light-blue-text text-accent-3 ">
                   <div class="modal-content yellow lighten-5">
                     <form >
                       <div class="row">
-                          <div class="input-field">
-                            <input id="email"  type="email">
-                            <label for="email">Email</label>
-                          </div>
-
+                           <div class="input-field">
+                              <input id="email" type="email" class="validate">
+                              <label for="email">Email</label>
+                            </div>
+                      </div>
+                      <div class="row">
                           <div class="input-field">
                             <input id="password" type="password">
                             <label for="password">Password</label>
@@ -39,8 +43,51 @@
                   <div class="modal-footer yellow lighten-5 ">
                     <a class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="material-icons">send</i></a>
                   </div>
+                </div>
+
+                 <!-- Modal2 Structure -->
+                <div id="modal2" class="modal light-blue-text text-accent-3 ">
+                  <div class="modal-content yellow lighten-5">
+                    <form >
+                      <div class="row">
+                          <div class="input-field">
+                            <input id="firstname" type="text">
+                            <label for="firstname">First Name</label>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="input-field">
+                            <input id="lastname" type="text">
+                            <label for="lastname">Last Name</label>
+                          </div>
+                      </div>
+                      <div class="row">
+                           <div class="input-field">
+                              <input id="email2" type="email" class="validate">
+                              <label for="email">Email</label>
+                            </div>
+                      </div>
+                      <div class="row">
+                          <div class="input-field">
+                            <input id="password2" type="password">
+                            <label for="password2">Password</label>
+                          </div>
+                      </div>
+                   </form>
+                   </div>
+                  <div class="modal-footer yellow lighten-5 ">
+                    <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="small material-icons">send</i></button>
+                  </div>
                  </div>
-              </div>
+
+                    <!-- Modal3 Structure -->
+                <div id="modal3" class="modal light-blue-text text-accent-3 ">
+                  <div class="modal-content yellow lighten-5">
+                   </div>
+                  <div class="modal-footer yellow lighten-5 ">
+                    <a class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="material-icons">send</i></a>
+                  </div>
+                </div>
             </nav>
 
 
@@ -50,10 +97,6 @@
                 <div class="container">
                   <br><br>
                   <h1 class="header center green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
-                  <div class="row center">
-                  </div>
-                  <div class="row center">
-                  </div>
                   <br><br>
                 </div>
               </div>
@@ -67,7 +110,7 @@
                   <div class="grid-example col s4">
                         <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
                         <ul id="dropdown1" class="dropdown-content">
-                          <li><a href="#!Tel Aviv-Yafo">Tel Aviv-Yafo</a></li>
+                          <li><a href="#Tel Aviv-Yafo">Tel Aviv-Yafo</a></li>
                           <li><a href="#!">Jerusalem</a></li>
                           <li><a href="#!">Herzeliyya</a></li>
                           <li><a href="#!">Haifa</a></li>
@@ -93,7 +136,7 @@
                           <li><a href="#!">Socializing</a></li>
                           <li><a href="#!">Tech</a></li>
                           <li><a href="#!">Transport</a></li>
-                           </ul>
+                       </ul>
                   </div>
 
                   <div class="grid-example col s4">
@@ -102,102 +145,75 @@
                           <li><a href="#!">1 day ahead</a></li>
                           <li><a href="#!">1 week ahead</a></li>
                           <li><a href="#!">1 month ahead</a></li>
-                          </ul>
+                      </ul>
                   </div>
                 </div>
               </div>
             </div>
 
-
-
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+              <a class="btn-floating btn-large red modal-trigger" href="#modal3">
+                <i class="material-icons">today</i>
+              </a>
+            </div>
             <div class="container">
               <div class="section">
                 <div class="row">
-                  <!-- <div class="col s12 left "> -->
                     <ul class="collapsible popout" data-collapsible="accordion">
-                        {% for event in events[:5] %}
+                        {% set num=0 %}
+                        {% for event in events[:10] %}
                         <li>
-                        <div class="collapsible-header">
-                         <div class="col s7 "><i class="material-icons">info</i>{{ event['name']}}</div>
-                         <div class="col s2 "><i class="material-icons">query_builder</i> {{ event['attendees']}}</div>
-                         <div class="col s3 "><i class="material-icons">location_on</i>{{ event['city'] }}</div>
-                        </div>
-                        <div class="collapsible-body">
-                              <input type="checkbox" id="test5" class="center-align" />
-                              <label for="test5"> Attend </label>
-                              <div></div>
-                          <p>{{event['description']}}</p>
-                        </div>
-                      </li>
+                            <div class="collapsible-header">
+                              <div class="col s6 truncate"><i class="material-icons">info</i>{{ event['name']}}</div>
+                              <div class="col s3 "><i class="material-icons">query_builder</i> {{ event['date']}}</div>
+                              <div class="col s3 "><i class="material-icons">location_on</i>{{ event['city'] }}</div>
+                            </div>
+                            <div class="collapsible-body">
+                              <p>{{event['description']}}</p>
+                                <input type="checkbox" id="test{{num}}"/>
+                                <label for="test{{num}}" class="right-align"> Attend </label>
+                            </div>
+                        </li>
+                        {% set num = num+1 %}
                         {% endfor %}
                     </ul>
-                    <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4>Contact Us</h4>
-                    <p class="left-align light">
-     <p>
-  	 This is Attender Mobile application's back-end server.
-  	 <p>
-  	 If you want to test our Android application, please <a href=" https://www.dropbox.com/s/74behm01kammqp4/app-debug.apk?dl=0"  target="_blank">download our apk file</a>
-  	 </p>
-  	 <br> For more information please visit our <a href="https://github.com/denbedilov/ATTENDER/wiki">Github Wiki</a></br>
-     <br><br>
-      </p>
-                    </p>
-
-                    <div class="parallax-container valign-wrapper">
-              <div class="section no-pad-bot">
-                <div class="container">
-                  <div class="row center">
-                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+                  {% set button="active" %}
+                  {% set button2="waves-effect" %}
+                  <div class="row">
+                     <ul class="col s6 offset-s4 pagination center-align">
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="active"><a href="#!">1</a></li>
+                        <li class="waves-effect"><a href="#1">2</a></li>
+                        <li class="waves-effect"><a href="#2">3</a></li>
+                        <li class="waves-effect"><a href="#3">4</a></li>
+                        <li class="waves-effect"><a href="#4">5</a></li>
+                        <li class="waves-effect"><a href="#5"><i class="material-icons">chevron_right</i></a></li>
+                      </ul>
+                  </div>
+              </div>
+                <h3><i class="center-align mdi-content-send black-text"></i> About Us </h3>
+                <div class="row">
+                  <div class="col s6 offset-s1">
+                    <div class="left-align light">
+                         <h6> This is Attender website.</h6>
+                         <h6> For Android application, please <a href=" https://www.dropbox.com/s/74behm01kammqp4/app-debug.apk?dl=0"  target="_blank">download our apk file</a></h6>
+                         <h6>For more information please visit our <a href="https://github.com/denbedilov/ATTENDER/wiki">Github Wiki</a></h6>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="parallax"><img src="images/background3.jpg" alt="Unsplashed background img 3"></div>
             </div>
 
             <footer class="page-footer teal">
-              <div class="container">
-                <div class="row">
-                  <div class="col l6 s12">
-                    <h5 class="white-text">Company Bio</h5>
-                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-                  </div>
-                  <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                      <li><a class="white-text" href="#!">Link 1</a></li>
-                      <li><a class="white-text" href="#!">Link 2</a></li>
-                      <li><a class="white-text" href="#!">Link 3</a></li>
-                      <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                  </div>
-                  <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                      <li><a class="white-text" href="#!">Link 1</a></li>
-                      <li><a class="white-text" href="#!">Link 2</a></li>
-                      <li><a class="white-text" href="#!">Link 3</a></li>
-                      <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="footer-copyright">
-                <div class="container">
-                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-                </div>
-              </div>
             </footer>
 
             <!--  Scripts-->
             <script async type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
             <script async type="text/javascript" src="/js/materialize.min.js"></script>
             <script async type="text/javascript" src="/js/materialize.js"></script>
+            <script async type="text/javascript" src="/js/list.pagination.min.js"></script>
             <script async type="text/javascript" src="/js/init.js"></script>
 
-
-            </body>
+          </body>
           </html>
   {% endautoescape %}
