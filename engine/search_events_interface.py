@@ -38,7 +38,8 @@ class EventSearch():
             events_list.append(event)
 
         event_json = json.dumps(events_list)
-        return event_json
+        # return event_json
+        return events_list
 
     def pull_from_db(self, city=None, category=None, date_and_time=None):
         e = Event()

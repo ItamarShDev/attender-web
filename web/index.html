@@ -1,219 +1,203 @@
-                <!DOCTYPE html>
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-                  <title>Attender</title>
+          <!DOCTYPE html>
+          <html lang="en">
+          {% autoescape true %}
+          <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+            <title>Attender</title>
 
-                  <!-- CSS  -->
-                  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-                  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-                </head>
-                <body>
-                  <nav class="white" role="navigation">
-                    <div class="nav-wrapper container">
-                      <a id="logo-container" href="#" class="brand-logo"><img src="logo1.png"></a>
-                      <ul class="right hide-on-med-and-down">
-                          <li><a><i class="material-icons modal-trigger" href="#modal1">input</i></a></li> 
-                      </ul>
+            <!-- CSS  -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+          </head>
+          <body>
 
-            
-                      <!-- Modal Structure -->
-                      <div id="modal1" class="modal light-blue-text text-accent-3 ">
-                        <div class="modal-content yellow lighten-5">
-                          <form >
-                            <div class="row">
-                                <div class="input-field">
-                                  <input id="email"  type="email">
-                                  <label for="email">Email</label>
-                                </div>
-                        
-                                <div class="input-field">
-                                  <input id="password" type="password">
-                                  <label for="password">Password</label>
-                                </div>
-                            </div>    
-                         </form>
-                         </div>
-                        <div class="modal-footer yellow lighten-5 ">
-                          <a class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="material-icons">send</i></a>
-                        </div>
-                       </div>
-                 
-                    </div>
-                  </nav>
-
-                  
-
-                  <div id="index-banner" class="parallax-container">
-                    <div class="section no-pad-bot">
-                      <div class="container">
-                        <br><br>
-                        <h1 class="header center green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
-                        <div class="row center">
-                          <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
-                        </div>
-                        <div class="row center">
-                           <!-- <a id="city-button" data-activates='dropdown1' class="btn-large waves-effect waves-light teal lighten-1 ">Start</a> -->
-                        </div>
-                        <br><br>
-
-                      </div>
-                    </div>
-                    <div class="parallax"><img src="meetings3.jpg" alt="Unsplashed background img 1"></div>
-                  </div>
-
-                  
-                  <div class="container">
-                    <div class="section">
-                      <div class="row center">
-                        <div class="grid-example col s4">
-                              <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                              <ul id="dropdown1" class="dropdown-content">
-                                <li><a href="#!">Tel Aviv-Yafo</a></li>
-                                <li><a href="#!">Jerusalem</a></li>
-                                <li><a href="#!">Herzeliyya</a></li>
-                                <li><a href="#!">Haifa</a></li>
-                                <li><a href="#!">Ra'anana</a></li>
-                                <li><a href="#!">Rekhovot</a></li>
-                                <li><a href="#!">Kefar Sava</a></li>
-                                <li><a href="#!">Ramat Gan</a></li>
-                                <li><a href="#!">Netanya</a></li>
-                                <li><a href="#!">Modi'in</a></li>
-                              </ul>
-                        </div>
-
-                        <div class="grid-example col s4">
-                             <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown2">Type<i class="mdi-navigation-arrow-drop-down right"></i></a> 
-                             <ul id="dropdown2" class="dropdown-content">
-                                <li><a href="#!">Career&ampBusiness</a></li>
-                                <li><a href="#!">Community&ampEnvironment</a></li>
-                                <li><a href="#!">Entertainment</a></li>
-                                <li><a href="#!">Fitness</a></li>
-                                <li><a href="#!">Health&ampWellbeing</a></li>
-                                <li><a href="#!">Politics</a></li>
-                                <li><a href="#!">New Age&ampSpirituality</a></li>
-                                <li><a href="#!">Socializing</a></li>
-                                <li><a href="#!">Tech</a></li>
-                                <li><a href="#!">Transport</a></li>
-                        </div>
-
-                        <div class="grid-example col s4">
-                           <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown3">Date<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                            <ul id="dropdown3" class="dropdown-content">
-                                <li><a href="#!">1 day ahead</a></li>
-                                <li><a href="#!">1 week ahead</a></li>
-                                <li><a href="#!">1 month ahead</a></li>
-                        </div> 
-                      </div>
-                    </div> 
-                  </div>
-
-
-             
-                  <div class="container">
-                    <div class="section">
-
-                        <ul class="collapsible popout" data-collapsible="accordion">
-
+            <nav class="white" role="navigation">
+              <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo"><img src="images/logo1.png"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a><i href="#modal1" class="material-icons modal-trigger" >input</i></a></li>
+                </ul>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal light-blue-text text-accent-3 ">
+                  <div class="modal-content yellow lighten-5">
+                    <form >
                       <div class="row">
-                        <!-- <div class="col s12 left "> -->
-                          <ul class="collapsible popout" data-collapsible="accordion">
-                            <li>
-                              <div class="collapsible-header">
-                               <div class="col s4 "><i class="material-icons">info</i> First event</div> 
-                               <div class="col s4 "><i class="material-icons">query_builder</i> time</div> 
-                               <div class="col s4 "><i class="material-icons">location_on</i> place</div>  
-                              </div>
-                              <div class="collapsible-body">
-                                <p>
-                                  <div class="col s6 "> Infornation about the event </div> 
-                                    <div class="grid-example col s6 center-align">
-                                      <input type="checkbox" id="test5" class="right-align" />
-                                      <label for="test5"> Attend </label> 
-                                    </div>
-                                </p>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="collapsible-header">
-                                <div class="col s4 "><i class="material-icons">info</i> First event</div> 
-                                <div class="col s4 "><i class="material-icons">query_builder</i> time</div> 
-                                <div class="col s4 "><i class="material-icons">location_on</i> place</div>  
-                              </div>
-                              <div class="collapsible-body"><p>Infornation about the event</p></div>
-                            </li>
-                            <li>
-                              <div class="collapsible-header">
-                                <div class="col s4 "><i class="material-icons">info</i> First event</div> 
-                                <div class="col s4 "><i class="material-icons">query_builder</i> time</div> 
-                                <div class="col s4 "><i class="material-icons">location_on</i> place</div>  
-                              <div class="collapsible-body"><p>Infornation about the event</p></div>
-                            </li>
-                          </ul>
-                          <h3><i class="mdi-content-send brown-text"></i></h3>
-                          <h4>Contact Us</h4>
+                          <div class="input-field">
+                            <input id="email"  type="email">
+                            <label for="email">Email</label>
+                          </div>
 
-                          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-
-
-                  
-
-
-                  <div class="parallax-container valign-wrapper">
-                    <div class="section no-pad-bot">
-                      <div class="container">
-                        <div class="row center">
-                          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-                        </div>
+                          <div class="input-field">
+                            <input id="password" type="password">
+                            <label for="password">Password</label>
+                          </div>
                       </div>
-                    </div>
-                    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+                   </form>
+                   </div>
+                  <div class="modal-footer yellow lighten-5 ">
+                    <a class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="material-icons">send</i></a>
+                  </div>
+                 </div>
+              </div>
+            </nav>
+
+
+
+            <div id="index-banner" class="parallax-container">
+              <div class="section no-pad-bot">
+                <div class="container">
+                  <br><br>
+                  <h1 class="header center green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
+                  <div class="row center">
+                  </div>
+                  <div class="row center">
+                  </div>
+                  <br><br>
+                </div>
+              </div>
+              <div class="parallax"><img src="images/meetings3.jpg" alt="Unsplashed background img 1"></div>
+            </div>
+
+
+            <div class="container">
+              <div class="section">
+                <div class="row center">
+                  <div class="grid-example col s4">
+                        <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                        <ul id="dropdown1" class="dropdown-content">
+                          <li><a href="#!Tel Aviv-Yafo">Tel Aviv-Yafo</a></li>
+                          <li><a href="#!">Jerusalem</a></li>
+                          <li><a href="#!">Herzeliyya</a></li>
+                          <li><a href="#!">Haifa</a></li>
+                          <li><a href="#!">Ra'anana</a></li>
+                          <li><a href="#!">Rekhovot</a></li>
+                          <li><a href="#!">Kefar Sava</a></li>
+                          <li><a href="#!">Ramat Gan</a></li>
+                          <li><a href="#!">Netanya</a></li>
+                          <li><a href="#!">Modi'in</a></li>
+                        </ul>
                   </div>
 
-                  <footer class="page-footer teal">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col l6 s12">
-                          <h5 class="white-text">Company Bio</h5>
-                          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                  <div class="grid-example col s4">
+                       <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown2">Type<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                       <ul id="dropdown2" class="dropdown-content">
+                          <li><a href="#!">Career&ampBusiness</a></li>
+                          <li><a href="#!">Community&ampEnvironment</a></li>
+                          <li><a href="#!">Entertainment</a></li>
+                          <li><a href="#!">Fitness</a></li>
+                          <li><a href="#!">Health&ampWellbeing</a></li>
+                          <li><a href="#!">Politics</a></li>
+                          <li><a href="#!">New Age&ampSpirituality</a></li>
+                          <li><a href="#!">Socializing</a></li>
+                          <li><a href="#!">Tech</a></li>
+                          <li><a href="#!">Transport</a></li>
+                           </ul>
+                  </div>
 
-
-                        </div>
-                        <div class="col l3 s12">
-                          <h5 class="white-text">Settings</h5>
-                          <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
+                  <div class="grid-example col s4">
+                     <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown3">Date<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                      <ul id="dropdown3" class="dropdown-content">
+                          <li><a href="#!">1 day ahead</a></li>
+                          <li><a href="#!">1 week ahead</a></li>
+                          <li><a href="#!">1 month ahead</a></li>
                           </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="container">
+              <div class="section">
+                <div class="row">
+                  <!-- <div class="col s12 left "> -->
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        {% for event in events[:5] %}
+                        <li>
+                        <div class="collapsible-header">
+                         <div class="col s7 "><i class="material-icons">info</i>{{ event['name']}}</div>
+                         <div class="col s2 "><i class="material-icons">query_builder</i> {{ event['attendees']}}</div>
+                         <div class="col s3 "><i class="material-icons">location_on</i>{{ event['city'] }}</div>
                         </div>
-                        <div class="col l3 s12">
-                          <h5 class="white-text">Connect</h5>
-                          <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
-                          </ul>
+                        <div class="collapsible-body">
+                              <input type="checkbox" id="test5" class="center-align" />
+                              <label for="test5"> Attend </label>
+                              <div></div>
+                          <p>{{event['description']}}</p>
                         </div>
-                      </div>
-                    </div>
-                    <div class="footer-copyright">
-                      <div class="container">
-                      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-                      </div>
-                    </div>
-                  </footer>
+                      </li>
+                        {% endfor %}
+                    </ul>
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Contact Us</h4>
+                    <p class="left-align light">
+     <p>
+  	 This is Attender Mobile application's back-end server.
+  	 <p>
+  	 If you want to test our Android application, please <a href=" https://www.dropbox.com/s/74behm01kammqp4/app-debug.apk?dl=0"  target="_blank">download our apk file</a>
+  	 </p>
+  	 <br> For more information please visit our <a href="https://github.com/denbedilov/ATTENDER/wiki">Github Wiki</a></br>
+     <br><br>
+      </p>
+                    </p>
 
-                  <!--  Scripts-->
-                  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-                  <script src="js/materialize.js"></script>
-                  <script src="js/init.js"></script>
+                    <div class="parallax-container valign-wrapper">
+              <div class="section no-pad-bot">
+                <div class="container">
+                  <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="parallax"><img src="images/background3.jpg" alt="Unsplashed background img 3"></div>
+            </div>
+
+            <footer class="page-footer teal">
+              <div class="container">
+                <div class="row">
+                  <div class="col l6 s12">
+                    <h5 class="white-text">Company Bio</h5>
+                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
 
-                  </body>
-                </html>
+                  </div>
+                  <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                      <li><a class="white-text" href="#!">Link 1</a></li>
+                      <li><a class="white-text" href="#!">Link 2</a></li>
+                      <li><a class="white-text" href="#!">Link 3</a></li>
+                      <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                  </div>
+                  <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                      <li><a class="white-text" href="#!">Link 1</a></li>
+                      <li><a class="white-text" href="#!">Link 2</a></li>
+                      <li><a class="white-text" href="#!">Link 3</a></li>
+                      <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-copyright">
+                <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                </div>
+              </div>
+            </footer>
+
+            <!--  Scripts-->
+            <script async type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+            <script async type="text/javascript" src="/js/materialize.min.js"></script>
+            <script async type="text/javascript" src="/js/materialize.js"></script>
+            <script async type="text/javascript" src="/js/init.js"></script>
+
+
+            </body>
+          </html>
+  {% endautoescape %}
