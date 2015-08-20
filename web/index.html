@@ -110,7 +110,7 @@
                   <div class="grid-example col s4">
                         <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
                         <ul id="dropdown1" class="dropdown-content">
-                          <li><a href="#Tel Aviv-Yafo">Tel Aviv-Yafo</a></li>
+                          <li><a href="{{ url_for('page') }}&Tel Aviv-Yafo">Tel Aviv-Yafo</a></li>
                           <li><a href="#!">Jerusalem</a></li>
                           <li><a href="#!">Herzeliyya</a></li>
                           <li><a href="#!">Haifa</a></li>
@@ -161,7 +161,8 @@
                 <div class="row">
                     <ul class="collapsible popout" data-collapsible="accordion">
                         {% set num=0 %}
-                        {% for event in events[:10] %}
+
+                        {% for event in events[page*10:(page+1)*10] %}
                         <li>
                             <div class="collapsible-header">
                               <div class="col s6 truncate"><i class="material-icons">info</i>{{ event['name']}}</div>
@@ -182,13 +183,18 @@
                   {% set button2="waves-effect" %}
                   <div class="row">
                      <ul class="col s6 offset-s4 pagination center-align">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="active"><a href="#!">1</a></li>
-                        <li class="waves-effect"><a href="#1">2</a></li>
-                        <li class="waves-effect"><a href="#2">3</a></li>
-                        <li class="waves-effect"><a href="#3">4</a></li>
-                        <li class="waves-effect"><a href="#4">5</a></li>
-                        <li class="waves-effect"><a href="#5"><i class="material-icons">chevron_right</i></a></li>
+                         {% if page > 1 %}
+                        <li class="enabled"><a href="/home?page={{page-1}}"><i class="material-icons">chevron_left</i></a></li>
+                         {% else %}
+                        <li class="disabled"><a href="/home?page={{page-1}}"><i class="material-icons">chevron_left</i></a></li>
+                         {% endif %}
+
+                        <li class="active"><a href="/home?page={{ page }}">{{ page }}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+1}}">{{page+1}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+2}}">{{page+2}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+3}}">{{page+3}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+4}}">{{page+4}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+1}}"><i class="material-icons">chevron_right</i></a></li>
                       </ul>
                   </div>
               </div>
