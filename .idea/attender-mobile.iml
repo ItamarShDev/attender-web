@@ -9,7 +9,7 @@
         <option name="email" value="ilana.olesya@gmail.com" />
         <option name="gp" value="dfdbdfdddfcfdfd8dfdedfd3df9bdf98df99df9edf9fdf8b" />
         <option name="oauth2" value="false" />
-        <option name="deployConfigured" value="false" />
+        <option name="deployConfigured" value="true" />
         <option name="saveCredentials" value="true" />
       </configuration>
     </facet>
