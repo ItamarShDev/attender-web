@@ -33,23 +33,21 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class Web(webapp2.RequestHandler):
     def get(self):
 
-        city = ""
-        category = ""
-        time = ""
+        city = self.request.get("city")
+        category = self.request.get("category")
+        time = self.request.get("time")
         page = self.request.get("page")
         if page == "":
             page = 1
         res = EventSearch()
         test = res.get_events(city=None if city == "" else city, category=None if category == "" else category, date_and_time=None if time == "" else time)
-        # self.response.write(test)
-        # test = {
-        #     'city': 'Jerusalem',
-        #     'time': "12",
-        #     'name': 'event!!'
-        # }
+
         template_val = {
             'events': test,
             'page':int(page),
+            'city':city,
+            'category': category,
+            'time':time,
         }
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render(template_val))

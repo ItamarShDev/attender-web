@@ -90,6 +90,31 @@
                 </div>
             </nav>
 
+            {% macro seturl(city = '', category = '', time = '', name = '') %}
+            {% set url = '/home?' %}
+
+            {% if city != '' %}
+            {% set url = url + "city="+ city %}
+            {% endif %}
+
+            {% if category!= '' %}
+            {% if city != "" %}
+            {% set url = url+"&category="+ category %}
+            {% else %}
+            {% set url = url + "category="+ category %}
+            {% endif %}
+            {% endif %}
+            {% if time != '' %}
+            {% if category != '' or  city != "" %}
+            {% set url = url + "&time="+ time %}
+            {% else %}
+            {% set url = url + "time="+ time %}
+            {% endif %}
+            {% endif %}
+             <li><a href="{{url}}#list">{{name}}</a></li>
+
+
+            {%  endmacro %}
 
 
             <div id="index-banner" class="parallax-container">
@@ -102,54 +127,55 @@
               </div>
               <div class="parallax"><img src="images/meetings3.jpg" alt="Unsplashed background img 1"></div>
             </div>
-
-
+            <A NAME = "list">
             <div class="container">
               <div class="section">
                 <div class="row center">
                   <div class="grid-example col s4">
                         <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
                         <ul id="dropdown1" class="dropdown-content">
-                          <li><a href="#Tel Aviv-Yafo">Tel Aviv-Yafo</a></li>
-                          <li><a href="#!">Jerusalem</a></li>
-                          <li><a href="#!">Herzeliyya</a></li>
-                          <li><a href="#!">Haifa</a></li>
-                          <li><a href="#!">Ra'anana</a></li>
-                          <li><a href="#!">Rekhovot</a></li>
-                          <li><a href="#!">Kefar Sava</a></li>
-                          <li><a href="#!">Ramat Gan</a></li>
-                          <li><a href="#!">Netanya</a></li>
-                          <li><a href="#!">Modi'in</a></li>
+                         {{ seturl(city = 'Tel Aviv-Yafo',name='Tel Aviv-Yafo') }}
+                         {{ seturl(city = 'Jerusalem',name='Jerusalem') }}
+                         {{ seturl(city = 'Herzeliyya',name='Herzeliyya') }}
+                         {{ seturl(city = 'Haifa',name= 'Haifa') }}
+                         {{ seturl(city = 'Raanana',name='Ra\'anana') }}
+                         {{ seturl(city = 'Rekhovot', name='Rekhovot') }}
+                         {{ seturl(city = 'Kefar Sava', name = 'Kefar Sava') }}
+                         {{ seturl(city = 'Ramat Gan',name='Ramat Gan') }}
+                         {{ seturl(city = 'Netanya',name='Netanya') }}
+                         {{ seturl(city = 'Modiin',name='Modi\'in') }}
                         </ul>
                   </div>
 
                   <div class="grid-example col s4">
                        <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown2">Type<i class="mdi-navigation-arrow-drop-down right"></i></a>
                        <ul id="dropdown2" class="dropdown-content">
-                          <li><a href="#!">Career&ampBusiness</a></li>
-                          <li><a href="#!">Community&ampEnvironment</a></li>
-                          <li><a href="#!">Entertainment</a></li>
-                          <li><a href="#!">Fitness</a></li>
-                          <li><a href="#!">Health&ampWellbeing</a></li>
-                          <li><a href="#!">Politics</a></li>
-                          <li><a href="#!">New Age&ampSpirituality</a></li>
-                          <li><a href="#!">Socializing</a></li>
-                          <li><a href="#!">Tech</a></li>
-                          <li><a href="#!">Transport</a></li>
+                           {{ seturl(city= city , category= "Career",name = 'Career and Business') }}
+                           {{ seturl(city = city , category = 'Community',name = 'Community&ampEnvironment') }}
+                           {{ seturl(city = city,category = 'Entertainment',name = 'Entertainment') }}
+                           {{ seturl(city = city,category = 'Fitness',name = 'Fitness') }}
+                           {{ seturl(city = city,category = 'Health',name = 'Health&ampWellbeing') }}
+                           {{ seturl(city = city,category = 'Politics',name = 'Politics') }}
+                           {{ seturl(city = city,category = 'New Age',name = 'New Age&ampSpirituality') }}
+                           {{ seturl(city = city,category = 'Socializing',name = 'Socializing') }}
+                           {{ seturl(city = city,category = 'Tech',name = 'Tech') }}
+                           {{ seturl(city = city,category = 'Transport',name = 'Transport') }}
                        </ul>
                   </div>
 
                   <div class="grid-example col s4">
                      <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown3">Date<i class="mdi-navigation-arrow-drop-down right"></i></a>
                       <ul id="dropdown3" class="dropdown-content">
-                          <li><a href="#!">1 day ahead</a></li>
-                          <li><a href="#!">1 week ahead</a></li>
-                          <li><a href="#!">1 month ahead</a></li>
+                          {{ seturl(city=city, category=category, time= '1d', name = 'Day ahead')}}
+                          {{ seturl(city=city, category=category, time= '1w', name = 'Week ahead')}}
+                          {{ seturl(city=city, category=category, time= '1m', name = 'Month ahead')}}
                       </ul>
                   </div>
                 </div>
               </div>
             </div>
+                                            </A>
+
 
             <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
               <a class="btn-floating btn-large red modal-trigger" href="#modal3">
@@ -184,17 +210,17 @@
                   <div class="row">
                      <ul class="col s6 offset-s4 pagination center-align">
                          {% if page > 1 %}
-                        <li class="enabled"><a href="/home?page={{page-1}}"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="enabled"><a href="/home?page={{page-1}}#list"><i class="material-icons">chevron_left</i></a></li>
                          {% else %}
-                        <li class="disabled"><a href="/home?page={{page-1}}"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="disabled"><a href="/home?page={{page-1}}#list"><i class="material-icons">chevron_left</i></a></li>
                          {% endif %}
 
-                        <li class="active"><a href="/home?page={{ page }}">{{ page }}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+1}}">{{page+1}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+2}}">{{page+2}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+3}}">{{page+3}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+4}}">{{page+4}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+1}}"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="active"><a href="/home?page={{ page }}#list">{{ page }}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+1}}#list">{{page+1}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+2}}#list">{{page+2}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+3}}#list">{{page+3}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+4}}#list">{{page+4}}</a></li>
+                        <li class="waves-effect"><a href="/home?page={{page+1}}#list"><i class="material-icons">chevron_right</i></a></li>
                       </ul>
                   </div>
               </div>
