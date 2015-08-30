@@ -1,251 +1,403 @@
-          <!DOCTYPE html>
-          <html lang="en">
-          {% autoescape true %}
-          <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-            <title>Attender</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<title>Attender</title>
 
-            <!-- CSS  -->
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-          </head>
-
-          <body>
-            <nav class="white" role="navigation">
-              <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo"><img src="/images/logo1.png"></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a><i href="#modal1" class="material-icons modal-trigger">input</i></a></li>
-                    <li><a><i href="#modal2" class="material-icons modal-trigger">assignment</i></a></li>
-                    <li><a><i href="#modal3" class="material-icons modal-trigger">today</i></a></li>
-                </ul>
-              </div>
-                    <!-- Modal1 Structure -->
-                <div id="modal1" class="modal light-blue-text text-accent-3 ">
-                  <div class="modal-content yellow lighten-5">
-                    <form >
-                      <div class="row">
-                           <div class="input-field">
-                              <input id="email" type="email" class="validate">
-                              <label for="email">Email</label>
-                            </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field">
-                            <input id="password" type="password">
-                            <label for="password">Password</label>
-                          </div>
-                      </div>
-                   </form>
-                   </div>
-                  <div class="modal-footer yellow lighten-5 ">
-                    <a class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="material-icons">send</i></a>
-                  </div>
-                </div>
-
-                 <!-- Modal2 Structure -->
-                <div id="modal2" class="modal light-blue-text text-accent-3 ">
-                  <div class="modal-content yellow lighten-5">
-                    <form >
-                      <div class="row">
-                          <div class="input-field">
-                            <input id="firstname" type="text">
-                            <label for="firstname">First Name</label>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field">
-                            <input id="lastname" type="text">
-                            <label for="lastname">Last Name</label>
-                          </div>
-                      </div>
-                      <div class="row">
-                           <div class="input-field">
-                              <input id="email2" type="email" class="validate">
-                              <label for="email">Email</label>
-                            </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field">
-                            <input id="password2" type="password">
-                            <label for="password2">Password</label>
-                          </div>
-                      </div>
-                   </form>
-                   </div>
-                  <div class="modal-footer yellow lighten-5 ">
-                    <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="small material-icons">send</i></button>
-                  </div>
-                 </div>
-
-                    <!-- Modal3 Structure -->
-                <div id="modal3" class="modal light-blue-text text-accent-3 ">
-                  <div class="modal-content yellow lighten-5">
-                   </div>
-                  <div class="modal-footer yellow lighten-5 ">
-                    <a class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action"> Submit <i class="material-icons">send</i></a>
-                  </div>
-                </div>
-            </nav>
-
-            {% macro seturl(city = '', category = '', time = '', name = '') %}
-            {% set url = '/home?' %}
-
-            {% if city != '' %}
-            {% set url = url + "city="+ city %}
-            {% endif %}
-
-            {% if category!= '' %}
-            {% if city != "" %}
-            {% set url = url+"&category="+ category %}
-            {% else %}
-            {% set url = url + "category="+ category %}
-            {% endif %}
-            {% endif %}
-            {% if time != '' %}
-            {% if category != '' or  city != "" %}
-            {% set url = url + "&time="+ time %}
-            {% else %}
-            {% set url = url + "time="+ time %}
-            {% endif %}
-            {% endif %}
-             <li><a href="{{url}}#list">{{name}}</a></li>
+<!-- CSS  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+   <div class="navbar-fixed">
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo"><img src="images/logo1.png"></a>
 
 
-            {%  endmacro %}
+        <ul class="right hide-on-med-and-down">
+
+      <li><a href="#modal1" class="modal-trigger tooltipped" data-position = "bottom" data-tooltip = "Login"><i  class="material-icons ">input</i></a></li>
+      <li><a href="#modal2" class="modal-trigger tooltipped" data-position = "bottom" data-tooltip = "Register"><i  class="material-icons ">assignment</i></a></li>
+      <li><a href = "#!" class=" tooltipped" data-position = "bottom" data-tooltip = "Logout" onclick="logout()"><i class="material-icons ">today</i></a></li>
+    </ul>
+  </div>
+</nav>
+       </div>
+  <div href="#modal3" class="fixed-action-btn modal-trigger tooltipped" data-position = "top" data-tooltip = "Calender" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large blue-grey">
+      <i class="large material-icons">today</i>
+
+    </a>
+  </div>
+
+<div id="modal1" class="modal light-blue-text text-accent-3">
+  <form id="loginform">
+    <div class="modal-content yellow lighten-5">
+      <div class="row">
+        <div class="input-field">
+          <input id="email" type="text" name = "email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <input id="password" type="password" name = "password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="modal-footer yellow lighten-5 ">
+   <button id = "login" class=" modal-action modal-close waves-effect  btn-flat" onclick = "javaxript:login()">Agree</button>
+ </div>
+</div>
+<!-- Modal2 Structure -->
+<div id="modal2" class="modal light-blue-text text-accent-3 ">
+<div class="modal-content yellow lighten-5">
+  <form id = "registerform" >
+    <div class="row">
+      <div class="input-field">
+        <input id="firstname" type="text" name="firstname" >
+        <label for="firstname">First Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="lastname" type="text" name="lastname" >
+        <label for="lastname">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+     <div class="input-field">
+      <input id="email2" type="email" class="validate" name = "email">
+      <label for="email">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field">
+      <input id="password2" type="password" name = "password">
+      <label for="password2">Password</label>
+    </div>
+  </div>
+</form>
+  <div class="modal-footer yellow lighten-5 ">
+    <button class="modal-action modal-close waves-effect btn-flat" type = "submit" onclick="javascript:register()"> Submit <i class="small material-icons">send</i></button>
+  </div>
+</div>
+</div>
+
+<!-- Modal3 Structure -->
+<div id="modal3" class="modal light-blue-text text-accent-3 ">
+<div class="modal-content yellow lighten-5">
+</div>
+</div>
 
 
-            <div id="index-banner" class="parallax-container">
-              <div class="section no-pad-bot">
-                <div class="container">
-                  <br><br>
-                  <h1 class="header center green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
-                  <br><br>
-                </div>
-              </div>
-              <div class="parallax"><img src="/images/meetings3.jpg" alt="Unsplashed background img 1"></div>
-            </div>
-            <A NAME = "list">
-            <div class="container">
-              <div class="section">
-                <div class="row center">
-                  <div class="grid-example col s4">
-                        <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                        <ul id="dropdown1" class="dropdown-content">
-                         {{ seturl(city = 'Tel Aviv-Yafo',name='Tel Aviv-Yafo') }}
-                         {{ seturl(city = 'Jerusalem',name='Jerusalem') }}
-                         {{ seturl(city = 'Herzeliyya',name='Herzeliyya') }}
-                         {{ seturl(city = 'Haifa',name= 'Haifa') }}
-                         {{ seturl(city = 'Raanana',name='Ra\'anana') }}
-                         {{ seturl(city = 'Rekhovot', name='Rekhovot') }}
-                         {{ seturl(city = 'Kefar Sava', name = 'Kefar Sava') }}
-                         {{ seturl(city = 'Ramat Gan',name='Ramat Gan') }}
-                         {{ seturl(city = 'Netanya',name='Netanya') }}
-                         {{ seturl(city = 'Modiin',name='Modi\'in') }}
-                        </ul>
-                  </div>
-
-                  <div class="grid-example col s4">
-                       <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown2">Type<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                       <ul id="dropdown2" class="dropdown-content">
-                           {{ seturl(city= city , category= "Career",name = 'Career and Business') }}
-                           {{ seturl(city = city , category = 'Community',name = 'Community&ampEnvironment') }}
-                           {{ seturl(city = city,category = 'Entertainment',name = 'Entertainment') }}
-                           {{ seturl(city = city,category = 'Fitness',name = 'Fitness') }}
-                           {{ seturl(city = city,category = 'Health',name = 'Health&ampWellbeing') }}
-                           {{ seturl(city = city,category = 'Politics',name = 'Politics') }}
-                           {{ seturl(city = city,category = 'New Age',name = 'New Age&ampSpirituality') }}
-                           {{ seturl(city = city,category = 'Socializing',name = 'Socializing') }}
-                           {{ seturl(city = city,category = 'Tech',name = 'Tech') }}
-                           {{ seturl(city = city,category = 'Transport',name = 'Transport') }}
-                       </ul>
-                  </div>
-
-                  <div class="grid-example col s4">
-                     <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown3">Date<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                      <ul id="dropdown3" class="dropdown-content">
-                          {{ seturl(city=city, category=category, time= '1d', name = 'Day ahead')}}
-                          {{ seturl(city=city, category=category, time= '1w', name = 'Week ahead')}}
-                          {{ seturl(city=city, category=category, time= '1m', name = 'Month ahead')}}
-                      </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-                                            </A>
 
 
-            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-              <a class="btn-floating btn-large red modal-trigger" href="#modal3">
-                <i class="material-icons">today</i>
-              </a>
-            </div>
-            <div class="container">
-              <div class="section">
-                <div class="row">
-                    <ul class="collapsible popout" data-collapsible="accordion">
-                        {% set num=0 %}
+<div id="index-banner" class="parallax-container">
+<div class="section no-pad-bot">
+<div class="container">
+  <br><br>
+  <h1 class="header center green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
+  <div class="row center">
+    <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+  </div>
+  <div class="row center">
+   <!-- <a id="city-button" data-activates='dropdown1' class="btn-large waves-effect waves-light teal lighten-1 ">Start</a> -->
+ </div>
+ <br><br>
 
-                        {% for event in events[page*10:(page+1)*10] %}
-                        <li>
-                            <div class="collapsible-header">
-                              <div class="col s6 truncate"><i class="material-icons">info</i>{{ event['name']}}</div>
-                              <div class="col s3 "><i class="material-icons">query_builder</i> {{ event['date']}}</div>
-                              <div class="col s3 "><i class="material-icons">location_on</i>{{ event['city'] }}</div>
-                            </div>
-                            <div class="collapsible-body">
-                              <p>{{event['description']}}</p>
-                                <input type="checkbox" id="test{{num}}"/>
-                                <label for="test{{num}}" class="right-align"> Attend </label>
-                            </div>
-                        </li>
-                        {% set num = num+1 %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                  {% set button="active" %}
-                  {% set button2="waves-effect" %}
-                  <div class="row">
-                     <ul class="col s6 offset-s4 pagination center-align">
-                         {% if page > 1 %}
-                        <li class="enabled"><a href="/home?page={{page-1}}#list"><i class="material-icons">chevron_left</i></a></li>
-                         {% else %}
-                        <li class="disabled"><a href="/home?page={{page-1}}#list"><i class="material-icons">chevron_left</i></a></li>
-                         {% endif %}
+</div>
+</div>
 
-                        <li class="active"><a href="/home?page={{ page }}#list">{{ page }}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+1}}#list">{{page+1}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+2}}#list">{{page+2}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+3}}#list">{{page+3}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+4}}#list">{{page+4}}</a></li>
-                        <li class="waves-effect"><a href="/home?page={{page+1}}#list"><i class="material-icons">chevron_right</i></a></li>
-                      </ul>
-                  </div>
-              </div>
-                <h3><i class="center-align mdi-content-send black-text"></i> About Us </h3>
-                <div class="row">
-                  <div class="col s6 offset-s1">
-                    <div class="left-align light">
-                         <h6> This is Attender website.</h6>
-                         <h6> For Android application, please <a href=" https://www.dropbox.com/s/74behm01kammqp4/app-debug.apk?dl=0"  target="_blank">download our apk file</a></h6>
-                         <h6>For more information please visit our <a href="https://github.com/denbedilov/ATTENDER/wiki">Github Wiki</a></h6>
-                    </div>
-                  </div>
-                </div>
-            </div>
+<div class="parallax"><img src="images/meetings3.jpg" alt="Unsplashed background img 1"></div>
+</div>
 
-            <footer class="page-footer teal">
-            </footer>
 
-            <!--  Scripts-->
-            <script async type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
-            <script async type="text/javascript" src="/js/materialize.min.js"></script>
-            <script async type="text/javascript" src="/js/materialize.js"></script>
-            <script async type="text/javascript" src="/js/list.pagination.min.js"></script>
-            <script async type="text/javascript" src="/js/init.js"></script>
+<div class="container">
+<div class="section">
+<div class="row center">
+<div class="grid-example col s4">
+  <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City<i class="mdi-navigation-arrow-drop-down right"></i></a>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!" onclick = "javascript:apiCall( 'Tel Aviv-Yafo','','')">Tel Aviv-Yafo</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Jerusalem','','')">Jerusalem</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Herzeliyya','','')">Herzeliyya</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Haifa','','')">Haifa</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Raanana','','')">Ra'anana</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Rekhovot','','')">Rekhovot</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Kefar Sava','','')">Kefar Sava</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Ramat Gan','','')">Ramat Gan</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Netanya','','')">Netanya</a></li>
+    <li><a href="#!" onclick = "javascript:apiCall('Modiin','','')">Modi'in</a></li>
+  </ul>
+</div>
 
-          </body>
-          </html>
-  {% endautoescape %}
+<div class="grid-example col s4">
+ <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown2">Type<i class="mdi-navigation-arrow-drop-down right"></i></a>
+ <ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!" onclick = "javascript:apiCall('','','Career')">Career&ampBusiness</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Community')">Community&ampEnvironment</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Entertainment')">Entertainment</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Fitness')">Fitness</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Health')">Health&ampWellbeing</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Politics')">Politics</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','New Age')">New Age&ampSpirituality</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Socializing')">Socializing</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Tech')">Tech</a></li>
+  <li><a href="#!" onclick = "javascript:apiCall('','','Transport')">Transport</a></li>
+     </ul>
+</div>
+
+<div class="grid-example col s4">
+ <a class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown3">Date<i class="mdi-navigation-arrow-drop-down right"></i></a>
+ <ul id="dropdown3" class="dropdown-content">
+  <li><a href="#!"  onclick = "javascript:apiCall('','1d','')">1 day ahead</a></li>
+  <li><a href="#!"  onclick = "javascript:apiCall('','1w','')">1 week ahead</a></li>
+  <li><a href="#!"  onclick = "javascript:apiCall('','1m','')">1 month ahead</a></li>
+     </ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="container">
+<div class="section">
+
+  <div id = "loader" class="progress">
+      <div class="indeterminate"></div>
+  </div>
+
+    <div class="center-align" id = "emptylist">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">Sorry No Events For This Search
+          </span>
+        </div>
+      </div>
+    </div>
+
+<div class="row">
+  <!-- <div class="col s12 left "> -->
+  <ul class="collapsible popout" data-collapsible="accordion" id = "list">
+    <li id = "event1" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name1"><i class="material-icons">info</i>test</div>
+       <div class="col s4 " id = "time1"><i class="material-icons">query_builder</i> time</div>
+       <div class="col s4 " id = "place1"><i class="material-icons">location_on</i> place</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description1"> {{ events[0]['description']}}</div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test1" class="right-align" />
+          <label for="test1"> Attend </label>
+        </div>
+    </div>
+  </li>
+         <li id = "event2" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name2"><i class="material-icons">info</i> {{ events[1]['name'][:30]}} </div>
+       <div class="col s4 " id = "time2"><i class="material-icons">query_builder</i> {{ events[1]['date']}}</div>
+       <div class="col s4 " id = "place2"><i class="material-icons">location_on</i>  {{ events[1]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description2">  {{ events[1]['description']}} </div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test2" class="right-align" />
+          <label for="test2"> Attend </label>
+        </div>
+    </div>
+  </li>    <li id = "event3" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name3"><i class="material-icons">info</i> {{ events[2]['name'][:30]}} </div>
+       <div class="col s4 " id = "time3"><i class="material-icons">query_builder</i> {{ events[2]['date']}}</div>
+       <div class="col s4 " id = "place3"><i class="material-icons">location_on</i>  {{ events[2]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description3">  {{ events[2]['description']}}</div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test3" class="right-align" />
+          <label for="test3"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event4" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name4"><i class="material-icons">info</i> {{ events[3]['name'][:30]}} </div>
+       <div class="col s4 " id = "time4"><i class="material-icons">query_builder</i> {{ events[3]['date']}}</div>
+       <div class="col s4 " id = "place4"><i class="material-icons">location_on</i>  {{ events[3]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description4"> {{ events[3]['description']}} </div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test4" class="right-align"/>
+          <label for="test4"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event5" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name5"><i class="material-icons">info</i> {{ events[4]['name'][:30]}} </div>
+       <div class="col s4 " id = "time5"><i class="material-icons">query_builder</i> {{ events[4]['date']}}</div>
+       <div class="col s4 " id = "place5"><i class="material-icons">location_on</i>  {{ events[4]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description5"> {{ events[4]['description']}} </div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test5" class="right-align" />
+          <label for="test6"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event6" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name6"><i class="material-icons">info</i> {{ events[5]['name'][:30]}} </div>
+       <div class="col s4 " id = "time6"><i class="material-icons">query_builder</i> {{ events[5]['date']}}</div>
+       <div class="col s4 " id = "place6"><i class="material-icons">location_on</i>  {{ events[5]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description6">  {{ events[5]['description']}} </div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test6" class="right-align" />
+          <label for="test6"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event7" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name7"><i class="material-icons">info</i> {{ events[6]['name'][:30]}} </div>
+       <div class="col s4 " id = "time7"><i class="material-icons">query_builder</i> {{ events[6]['date']}}</div>
+       <div class="col s4 " id = "place7"><i class="material-icons">location_on</i>  {{ events[6]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description7"> {{ events[6]['description']}}</div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test7" class="right-align" />
+          <label for="test7"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event8" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name8"><i class="material-icons">info</i> {{ events[7]['name'][:30]}} </div>
+       <div class="col s4 " id = "time8"><i class="material-icons">query_builder</i> {{ events[7]['date']}}</div>
+       <div class="col s4 " id = "place8"><i class="material-icons">location_on</i>  {{ events[7]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description8"> {{ events[7]['description']}} </div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test8" class="right-align" />
+          <label for="test8"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event9" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name9"><i class="material-icons">info</i> {{ events[8]['name'][:30]}} </div>
+       <div class="col s4 " id = "time9"><i class="material-icons">query_builder</i> {{ events[8]['date']}}</div>
+       <div class="col s4 " id = "place9"><i class="material-icons">location_on</i> {{ events[8]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description9">  {{ events[8]['description']}}</div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test9" class="right-align"/>
+          <label for="test9"> Attend </label>
+        </div>
+    </div>
+  </li>
+          <li id = "event10" >
+      <div class="collapsible-header">
+       <div class="col s4 " id = "name10"><i class="material-icons">info</i> {{ events[9]['name'][:30]}} </div>
+       <div class="col s4 " id = "time10"><i class="material-icons">query_builder</i> {{ events[9]['date']}}</div>
+       <div class="col s4 " id = "place10"><i class="material-icons">location_on</i> {{ events[9]['city']}}</div>
+     </div>
+     <div class="collapsible-body">
+      <p>
+        <div class="col s12 " id = "description10"> {{ events[9]['description']}} </div>
+      </p>
+       <div class="right-align">
+          <input type="checkbox" id="test10" class="right-align" />
+          <label for="test10"> Attend </label>
+        </div>
+    </div>
+  </li>
+  </ul>
+    <div class="center-align">
+      <ul class="pagination">
+        <li class="disabled" id = "returnPage"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active" id = "pagebutton1" onclick ="javascript:changePage(1)"><a href="#!"  >1</a></li>
+        <li class="waves-effect" id = "pagebutton2" onclick ="javascript:changePage(2)"><a href="#!" >2</a></li>
+        <li class="waves-effect" id = "pagebutton3" onclick ="javascript:changePage(3)"><a href="#!" >3</a></li>
+        <li class="waves-effect" id = "pagebutton4" onclick ="javascript:changePage(4)"><a href="#!" >4</a></li>
+        <li class="waves-effect" id = "pagebutton5" onclick ="javascript:changePage(5)"      ><a href="#!" >5</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+      </ul>
+    </div>
+    </div>
+</div>
+</div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" href="https://github.com/ItamarShDev/attender-web">Our Github Page</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!" onclick="javascript:window.location='mailto:itamarsharify@gmail.com?subject=You Got an A!&body=I thought you might find this information interesting: '">Itamar Mail</a></li>
+            <li><a class="white-text" href="#!"onclick="javascript:window.location='mailto:ilana.olesya@gmail.com?subject=You Got an A!&body=I thought you might find this information interesting: '">Olesya Mail</a></li>
+              <li><a class="white-text" href="#!"onclick="javascript:window.location='mailto:?subject=Take a Look!!&body=I thought you might find this information interesting:'+ window.location;">Olesya Mail</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <!-- <script type="text/javascript" src="js/angular.min.js"></script> -->
+
+</body>
+</html>

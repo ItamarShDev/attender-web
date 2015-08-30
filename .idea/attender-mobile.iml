@@ -4,7 +4,7 @@
     <facet type="google-appengine-python" name="Google App Engine (Python)">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
-        <option name="sdkFolder" value="$USER_HOME$/Downloads/google_appengine" />
+        <option name="sdkFolder" value="$MODULE_DIR$/../google_appengine" />
         <option name="templatesFolder" value="" />
         <option name="email" value="ilana.olesya@gmail.com" />
         <option name="gp" value="dfdbdfdddfcfdfd8dfdedfd3df9bdf98df99df9edf9fdf8b" />
@@ -19,5 +19,10 @@
     <orderEntry type="jdk" jdkName="Python 2.7.10 (/usr/bin/python2.7)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
+    <orderEntry type="library" name="angular-material" level="application" />
+    <orderEntry type="library" name="angular" level="application" />
+    <orderEntry type="library" name="angular-animate" level="application" />
+    <orderEntry type="library" name="angular-aria" level="application" />
+    <orderEntry type="library" name="materialize" level="application" />
   </component>
 </module>

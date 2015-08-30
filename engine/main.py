@@ -15,13 +15,11 @@
 # limitations under the License.
 #
 import webapp2
-
+import logging
 import os
 import json
-import webapp2
 from engine.search_events_interface import EventSearch
 import jinja2
-import urllib
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -52,15 +50,22 @@ class Web(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render(template_val))
 
+class List(webapp2.RequestHandler):
+    def get(self):
+        res = EventSearch()
+        city = self.request.get("city")
+        category = self.request.get("category")
+        time = self.request.get("time")
+        test = res.get_events(city=None if city == "" else city, category=None if category == "" else category, date_and_time=None if time == "" else time)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write( os.path.dirname(__file__).split('engine')[0]+"web\\")
+        self.response.write(os.path.dirname(__file__).
+                            split('engine')[0]+"web\\")
         self.redirect("/home", permanent=True)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/home', Web)
+    ('/home', Web),
+    ('/jslist', List)
 ], debug=True)
-
-

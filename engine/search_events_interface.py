@@ -24,21 +24,20 @@ class EventSearch():
 
         for res in results:
             event = dict()
-            event['id'] = res.key.id()
-            event['name'] = res.name
-            #date_time = int(mktime(res.date.utctimetuple()) * 1000)
-            event['date'] = res.date
-            event['city'] = res.city
-            event['address'] = res.address
-            event['description'] = res.description
-            event['host'] = res.host
-            event['event_url'] = res.event_url
-            event['attendees'] = res.attendees
-            event['price'] = res.price
+            event["id"] = res.key.id()
+            event["name"] = res.name
+            date_time = int(mktime(res.date.utctimetuple()) * 1000)
+            event['date'] = date_time
+            event["city"] = res.city
+            event["address"] = res.address
+            event["description"] = res.description
+            event["host"] = res.host
+            event["event_url"] = res.event_url
+            event["attendees"] = res.attendees
+            event["price"] = res.price
             events_list.append(event)
 
-        #event_json = json.dumps(events_list)
-        # return event_json
+        # event_json = {'events':events_list}
         return events_list
 
     def pull_from_db(self, city=None, category=None, date_and_time=None):

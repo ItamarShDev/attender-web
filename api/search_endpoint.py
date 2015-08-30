@@ -16,12 +16,12 @@ class APIHandler(webapp2.RequestHandler):
         time = self.request.get("time").encode('ascii', 'ignore')
         logging.info("city:"+ city+"\ncategory: "+category+"\ntime: "+time)
         reply_json = res.get_events(city=None if city == "" else city, category=None if category == "" else category, date_and_time=None if time == "" else time)
-        logging.info("printing the result in json format" + reply_json)
-        self.post(reply_json)
+        self.post(json.dumps(reply_json))
 
 
 
     def post(self, replyJson = None):
+        self.response.headers['Content-Type'] = 'application/json'
         if replyJson == '[]':
             self.response.set_status(400)
             self.response.write('[]')
