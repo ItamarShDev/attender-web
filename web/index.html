@@ -19,14 +19,14 @@
     <a id="logo-container" href="#" class="brand-logo"><img src="images/logo1.png"></a>
         <ul class="right">
 
-      <li><a href="#modal1" class="modal-trigger tooltipped hide-on-med-and-down" data-position = "bottom" data-tooltip = "Login"><i  class="material-icons ">perm_identity</i></a></li>
-      <li><a href="#modal2" class="modal-trigger tooltipped hide-on-med-and-down" data-position = "bottom" data-tooltip = "Register"><i  class="material-icons ">assignment</i></a></li>
-      <li><a href = "#!" class=" tooltipped" data-position = "bottom" data-tooltip = "Logout" onclick="logout()"><i class="material-icons ">input</i></a></li>
+      <li><a href="#modal1" class="modal-trigger tooltipped hide-on-med-and-down" data-delay="50" data-position = "bottom" data-tooltip = "Login"><i  class="material-icons ">perm_identity</i></a></li>
+      <li><a href="#modal2" class="modal-trigger tooltipped hide-on-med-and-down" data-delay="50" data-position = "bottom" data-tooltip = "Register"><i  class="material-icons ">assignment</i></a></li>
+      <li><a href = "#!" class=" tooltipped" data-position = "bottom"  data-delay="50" data-tooltip = "Logout" onclick="logout()"><i class="material-icons ">input</i></a></li>
     </ul>
   </div>
 </nav>
        </div>
-  <div id = "registerer" href="#modal3" class="fixed-action-btn modal-trigger tooltipped" data-position = "top" data-tooltip = "Sign In" style="bottom: 45px; right: 24px;">
+  <div id = "registerer" href="#modal3" class="fixed-action-btn modal-trigger tooltipped" data-position = "top" data-delay="50" data-tooltip = "Sign In" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-large materialize-red">
       <i class="large material-icons">assignment</i>
     </a>
@@ -50,7 +50,7 @@
     </div>
   </form>
   <div class="modal-footer yellow lighten-5 ">
-   <button id = "login" class=" modal-action modal-close waves-effect  btn-flat" onclick = "javaxript:login()">Agree</button>
+   <button id = "login" class=" modal-action modal-close waves-effect  btn-flat" onclick = "javascript:login()">Agree</button>
  </div>
 </div>
 <!-- Modal2 Structure -->
@@ -92,32 +92,40 @@
 <div id="modal3" class="light-blue-text text-accent-3 modal bottom-sheet">
 <div class="modal-content yellow lighten-5">
     <div class="row">
-        <div class="col s4 left-align">
+        <div class="col s6 m2 l2 left-align">
         <button class="modal-trigger modal-action modal-close waves-effect btn-flat " href="#modal1">Login</button>
            </div>
-        <div class="col  center-align">
-            If you wish to enjoy Attender, Please Consider loging in!
+        <div class="col  m8 l8 center-align  hide-on-small-and-down">
+            If you wish to enjoy Attender, Please login!
         </div>
-        <div class="col s4 right-align">
+        <div class="col s6 m2 l2 right-align">
             <button class="modal-trigger modal-action modal-close waves-effect btn-flat " href="#modal2">Register</button>
     </div>
     </div>
 </div>
 </div>
 
-
+<div id="errormodal" class="red-text text-accent-3 modal">
+<div class="modal-content">
+<h4 class = "center-align red-text" id="errormessage"></h4>
+</div>
+      <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect btn-flat">OK</button>
+    </div>
+</div>
 
 
 <div id="index-banner" class="parallax-container">
 <div class="section no-pad-bot">
 <div class="container">
   <br><br>
-  <h1 class="header center green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
+  <h1 class="header center hide-on-small-and-down green-lighten-5-text text-darken-3">Search.Attend.Meet.</h1>
   <div class="row center">
-    <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+      <h1 class="header center hide-on-med-and-up green-lighten-5-text text-darken-3">Search.</h1>
+       <h1 class="header center hide-on-med-and-up green-lighten-5-text text-darken-3">Attend.</h1>
+      <h1 class="header center hide-on-med-and-up green-lighten-5-text text-darken-3">Meet.</h1>
   </div>
   <div class="row center">
-   <!-- <a id="city-button" data-activates='dropdown1' class="btn-large waves-effect waves-light teal lighten-1 ">Start</a> -->
  </div>
  <br><br>
 
@@ -197,12 +205,12 @@
   <ul class="collapsible popout" data-collapsible="accordion" id = "list">
 
   </ul>
+
     <div class="divider"></div>
-    <div class="col offset-s2 offset-m3 offset-l4" >
+    <div class="col offset-m3 offset-l4 offset-s1" >
       <ul class="pagination" id = "pageButtons">
       </ul>
     </div>
-
     </div>
 </div>
 </div>
