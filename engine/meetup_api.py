@@ -39,8 +39,7 @@ class MeetupApi(api_request.ApiRequest):
         logging.info("Starting connection to meetup.api")
         for city in cities:  #for each city requst info from meetup
             request.update({"sign": "true", "country": "il", "key": self.settings['API_KEY'],
-                            "page": per_page, "offset": offset, "fields": "event_hosts", "city": city,
-                            "text_format": "plain", "radius": radius})
+                            "page": per_page, "offset": offset, "fields": "event_hosts", "city": city, "radius": radius})
 
             response, status_code = self.http_request_using_requests_lib("http://api.meetup.com/2/open_events", request)
             offset += 1

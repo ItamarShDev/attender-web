@@ -24,5 +24,6 @@
     <orderEntry type="library" name="angular-animate" level="application" />
     <orderEntry type="library" name="angular-aria" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
+    <orderEntry type="library" name="jquery-2.1.1" level="application" />
   </component>
 </module>
