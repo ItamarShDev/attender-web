@@ -59,6 +59,8 @@ class UserLoginHandler(webapp2.RequestHandler):
         self.post(token)
 
     def post(self,response):
+        self.response.headers.add_header("Access-Control-Allow-Origin", "*")
+        self.response.headers['Content-Type'] = 'application/json'
         if response is -4:
             self.response.set_status(403)
             self.response.write("ERROR: Invalid mail")

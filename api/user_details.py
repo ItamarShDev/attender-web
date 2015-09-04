@@ -18,6 +18,8 @@ class UserDetailsHandler(webapp2.RequestHandler):
                 self.post(2)
 
     def post(self, response):
+        self.response.headers.add_header("Access-Control-Allow-Origin", "*")
+        self.response.headers['Content-Type'] = 'application/json'
         if response == -1:
             self.response.set_status(400)
             self.response.write("ERROR: Missing token")
