@@ -33,6 +33,8 @@ class APIAttendHandler(webapp2.RequestHandler):
                 self.post(3)
 
     def post(self, received):
+        self.response.headers.add_header("Access-Control-Allow-Origin", "*")
+        self.response.headers['Content-Type'] = 'application/json'
         if received is -3:
             self.response.set_status(404)
             self.response.write("ERROR: Wrong Token")

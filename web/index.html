@@ -25,7 +25,7 @@
 
       <li><a href="#modal1" id = "loginbutton" class="modal-trigger tooltipped hide-on-med-and-down" data-delay="50" data-position = "bottom" data-tooltip = "Login"><i  class="material-icons ">perm_identity</i></a></li>
       <li><a href="#modal2" id = "regbutton" class="modal-trigger tooltipped hide-on-med-and-down" data-delay="50" data-position = "bottom" data-tooltip = "Register"><i  class="material-icons ">assignment</i></a></li>
-      <li><a href = "#!" id = "logoutbutton" class=" tooltipped" data-position = "bottom"  data-delay="50" data-tooltip = "Logout" onclick="logout()"><i class="material-icons ">input</i></a></li>
+      <li><a href = "#!" id = "logoutbutton" class=" tooltipped" style="display: none;" data-position = "bottom"  data-delay="50" data-tooltip = "Logout" onclick="logout()"><i class="material-icons ">input</i></a></li>
     </ul>
   </div>
 </nav>
@@ -41,7 +41,7 @@
     <div class="modal-content yellow lighten-5">
       <div class="row">
         <div class="input-field">
-          <input id="email" type="text" name = "email">
+          <input id="email"  type="email" class="validate" name = "email">
           <label for="email">Email</label>
         </div>
       </div>
@@ -81,7 +81,7 @@
   </div>
   <div class="row">
     <div class="input-field">
-      <input id="password2" type="password" name = "password">
+      <input id="password2" type="password"  name = "password">
       <label for="password2">Password</label>
     </div>
   </div>
@@ -143,98 +143,77 @@
 <div class="container">
 <div class="section">
 <div class="row center">
-<div class="grid-example col s4">
-  <a id = "citybutton" class="btn dropdown-button" data-hover="true" href="#!" data-activates="dropdown1">City</a>
-  <ul id="dropdown1" class="dropdown-content flow-text">
-    <li><a href="#!" onclick = "javascript:apiCall( 'Tel Aviv-Yafo','','')">Tel Aviv-Yafo</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Jerusalem','','')">Jerusalem</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Herzeliyya','','')">Herzeliyya</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Haifa','','')">Haifa</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Raanana','','')">Ra'anana</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Rekhovot','','')">Rekhovot</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Kefar Sava','','')">Kefar Sava</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Ramat Gan','','')">Ramat Gan</a></li>
-    <li><a href="#!" onclick = "javascript:apiCall('Netanya','','')">Netanya</a></li>
+<div  class="col s4">
+  <a id = "citybutton" class="btn dropdown-button flow-text" href="#!" data-activates="dropdown1">City</a>
+  <ul id="dropdown1" class="dropdown-content">
+      <li><a  href="#!" class="flow-text" id = "nocity" style="display:none;" onclick = "javascript:apiCall('none','','')">No Selection</a></li>
+       <li  class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall( 'Tel Aviv-Yafo','','')">Tel Aviv-Yafo</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Jerusalem','','')">Jerusalem</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Herzeliyya','','')">Herzeliyya</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Haifa','','')">Haifa</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Raanana','','')">Ra'anana</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Rekhovot','','')">Rekhovot</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Kefar Sava','','')">Kefar Sava</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+      <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Ramat Gan','','')">Ramat Gan</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+      <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Ramat Gan','','')">Ramat Gan</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+    <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('Netanya','','')">Netanya</a></li>
+      <li class="divider hide-on-med-and-up"></li>
     <li><a href="#!" onclick = "javascript:apiCall('Modiin','','')">Modi'in</a></li>
   </ul>
 </div>
 
-<div class="grid-example col s4">
- <a class="btn dropdown-button" id="topicbutton" data-hover="true" href="#!" data-activates="dropdown2">Type</a>
+<div class="col s4">
+ <a class="btn dropdown-button flow-text" id="topicbutton" href="#!" data-activates="dropdown2">Type</a>
  <ul id="dropdown2" class="dropdown-content flow-text">
-  <li><a href="#!" onclick = "javascript:apiCall('','','Career')">Career&ampBusiness</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Community')">Community&ampEnvironment</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Entertainment')">Entertainment</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Fitness')">Fitness</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Health')">Health&ampWellbeing</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Politics')">Politics</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','New Age')">New Age&ampSpirituality</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Socializing')">Socializing</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Tech')">Tech</a></li>
-  <li><a href="#!" onclick = "javascript:apiCall('','','Transport')">Transport</a></li>
+     <li><a  href="#!" class="flow-text" id = "nocategory" style="display:none;" onclick = "javascript:apiCall('','','none')">No Selection</a></li>
+       <li  class="divider hide-on-med-and-up"></li>
+  <li><a  href="#!" class="flow-text" onclick = "javascript:apiCall('','','Career')">Career &amp Business</a></li>
+       <li  class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Community')">Community &amp Environment</a></li>
+<li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Entertainment')">Entertainment</a></li>
+<li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Fitness')">Fitness</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Health')">Health &amp Wellbeing</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Politics')">Politics</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','New Age')">New Age &amp Spirituality</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Socializing')">Socializing</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Tech')">Tech</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text" onclick = "javascript:apiCall('','','Transport')">Transport</a></li>
      </ul>
 </div>
 
-<div class="grid-example col s4">
- <a class="btn dropdown-button" id="until" data-hover="true" href="#!" data-activates="dropdown3">Date</a>
+<div class="col s4">
+ <a class="btn dropdown-button flow-text" id="until" href="#!" data-activates="dropdown3">Date</a>
  <ul id="dropdown3" class="dropdown-content flow-text">
-  <li><a href="#!"  onclick = "javascript:apiCall('','1d','')">1 day ahead</a></li>
-  <li><a href="#!"  onclick = "javascript:apiCall('','1w','')">1 week ahead</a></li>
-  <li><a href="#!"  onclick = "javascript:apiCall('','1m','')">1 month ahead</a></li>
+     <li><a  href="#!" class="flow-text" id = "notime" style="display:none;" onclick = "javascript:apiCall('','none','')">No Selection</a></li>
+       <li  class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text"  onclick = "javascript:apiCall('','1d','')">1 day ahead</a></li>
+     <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text"  onclick = "javascript:apiCall('','1w','')">1 week ahead</a></li>
+      <li class="divider hide-on-med-and-up"></li>
+  <li><a href="#!" class="flow-text"  onclick = "javascript:apiCall('','1m','')">1 month ahead</a></li>
      </ul>
 </div>
 </div>
 </div>
 </div>
-
-<!-- Modal Structure -->
-  <div id="cities" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Choose City</h4>
-     <ul id="citiesmodal" class="collection flow-text">
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall( 'Tel Aviv-Yafo','','')">Tel Aviv-Yafo</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Jerusalem','','')">Jerusalem</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Herzeliyya','','')">Herzeliyya</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Haifa','','')">Haifa</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Raanana','','')">Ra'anana</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Rekhovot','','')">Rekhovot</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Kefar Sava','','')">Kefar Sava</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Ramat Gan','','')">Ramat Gan</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Netanya','','')">Netanya</a></li>
-    <li><a href="#!" class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('Modiin','','')">Modi'in</a></li>
-  </ul>
-    </div>
-  </div>
-<!-- Modal Structure -->
-  <div  id="time" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Choose Time</h4>
-      <ul id="times" class="collection flow-text">
-  <li><a href="#!"  class="collection-item  modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','1d','')">1 day ahead</a></li>
-  <li><a href="#!"  class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','1w','')">1 week ahead</a></li>
-  <li><a href="#!"  class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','1m','')">1 month ahead</a></li>
-     </ul>
-    </div>
-  </div>
-<!-- Modal Structure -->
-  <div id="topics" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Choose Category</h4>
-      <ul id="categories" class="collection flow-text">
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Career')">Career&ampBusiness</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Community')">Community&ampEnvironment</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Entertainment')">Entertainment</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Fitness')">Fitness</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Health')">Health&ampWellbeing</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Politics')">Politics</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','New Age')">New Age&ampSpirituality</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Socializing')">Socializing</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Tech')">Tech</a></li>
-  <li><a href="#!" class="collection-item modal-close waves-effect waves-green btn-flat" onclick = "javascript:apiCall('','','Transport')">Transport</a></li>
-     </ul>
-    </div>
-  </div>
-
 
 <div class="container">
 <div class="section">
@@ -271,8 +250,7 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Attender</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job.
-              This is a website built upon Attender Server for a course project.</p>
+          <p class="grey-text text-lighten-4">This is a website for the Web Application course in JCE "Azrielli"</p>
 
 
         </div>
@@ -301,8 +279,7 @@
   </footer>
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!--<script src="js/jquery-2.1.4.min.js"></script>-->
+  <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 

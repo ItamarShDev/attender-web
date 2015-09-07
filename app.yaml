@@ -41,6 +41,8 @@ handlers:
 - url: /images
   static_dir: web/images
   mime_type: image/png
+- url: /font
+  static_dir: web/font
 - url: /
   script: engine.main.app
 - url: /home
