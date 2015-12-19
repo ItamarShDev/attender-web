@@ -1,0 +1,24 @@
+Moving to Angular
+making the web fully client side
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/web/modal1.html b/web/modal1.html
+new file mode 100644
+index 0000000..d538fea
+--- /dev/null
++++ b/web/modal1.html
+@@ -0,0 +1,10 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title></title>
++</head>
++<body>
++
++</body>
++</html>
+\ No newline at end of file
