@@ -16,5 +16,5 @@ A web interface for the Attender Server
 ###Libraries
 * Requests
 
-##### [Web Address](attender-web.appspot.com)
+##### [Web Address](http://attender-web.appspot.com)
 
